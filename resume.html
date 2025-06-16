@@ -4,14 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noah Lemaire</title>
-    <link rel="icon" type="image/x-icon" href="icon.svg">
+    <link rel="icon" type="image/x-icon" href="images/x-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      .skill-dial {
+        transition: all 0.3s ease;
+      }
+      .skill-dial:hover {
+        transform: scale(1.05);
+      }
+      @keyframes fillCircle {
+        from {
+          stroke-dashoffset: 283;
+        }
+        to {
+          stroke-dashoffset: var(--target-offset);
+        }
+      }
+      .skill-circle {
+        animation: fillCircle 2s ease-out forwards;
+        animation-delay: 0.5s;
+      }
+    </style>
   </head>
   <body class="bg-gray-200 font-mono text-black">
-    <nav class="relative flex items-center justify-between p-4 text-black">
+    <nav class="relative flex items-center justify-between p-4 text-black" data-aos="fade-down" data-aos-duration="800">
       <div class="absolute top-4 left-1/2 hidden -translate-x-1/2 transform lg:flex">
         <a href="index.html" class="text-opacity-80 hover:text-opacity-100 group relative mx-3 cursor-pointer px-1 text-gray-900 transition-all duration-200">
           <span class="relative z-20">About</span>
@@ -30,7 +50,6 @@
           <span class="absolute bottom-0 left-0 z-10 h-2 w-0 skew-x-12 bg-[#4A6389] transition-all duration-300 ease-out group-hover:w-full"></span>
         </a>
       </div>
-
 
       <div x-data="{ open: false }" class="ml-auto lg:hidden">
         <button x-on:click="open = !open" class="relative z-50">
@@ -52,5 +71,364 @@
       </div>
     </nav>
 
+    <!-- Main Content -->
+    <div x-data="{ 
+      showModal: false, 
+      modalImage: '', 
+      modalTitle: '',
+      openCertificate(image, title) {
+        this.modalImage = image;
+        this.modalTitle = title;
+        this.showModal = true;
+      }
+    }" class="container mx-auto px-4 py-8 max-w-4xl">
+      
+      <!-- About Me Section -->
+      <section class="mb-12 bg-gray-100 rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="200">About Me & Objectives</h2>
+        <p class="text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+          I am a dedicated high school student seeking part-time employment. Passionate about technology and experienced in full-stack web development and computer systems, I thrive on solving problems and collaborating on technical and creative projects. I also bring strong communication and organization skills, gained through real-world work and volunteer experience.
+        </p>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="mb-12 bg-white rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="200">Experience</h2>
+        
+        <!-- Sunnyside Music School -->
+        <div class="mb-8" data-aos="slide-up" data-aos-delay="300">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+            <h3 class="text-xl font-semibold text-gray-800" data-aos="fade-right" data-aos-delay="400">Sunnyside Music School</h3>
+            <span class="text-sm text-gray-600 italic" data-aos="fade-left" data-aos-delay="400">Now</span>
+          </div>
+          <h4 class="text-lg text-[#4A6389] mb-4" data-aos="fade-up" data-aos-delay="500">Teacher, Administrator, Marketing & Communications</h4>
+          
+          <div class="space-y-4">
+            <div data-aos="fade-up" data-aos-delay="600">
+              <h5 class="font-semibold text-gray-700 mb-2">Teaching:</h5>
+              <ul class="text-gray-600 space-y-1 ml-4">
+                <li data-aos="fade-right" data-aos-delay="650">• Taught beginner bass guitar lessons with a focus on jazz fundamentals and theory</li>
+                <li data-aos="fade-right" data-aos-delay="700">• Adapted lesson plans to each student's learning pace and musical goals</li>
+              </ul>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-delay="750">
+              <h5 class="font-semibold text-gray-700 mb-2">Administration:</h5>
+              <ul class="text-gray-600 space-y-1 ml-4">
+                <li data-aos="fade-right" data-aos-delay="800">• Scheduled lessons and managed school calendars</li>
+                <li data-aos="fade-right" data-aos-delay="850">• Registered new students, organized program logistics, and coordinated an open house event</li>
+                <li data-aos="fade-right" data-aos-delay="900">• Handled payroll and resolved parent/student concerns efficiently</li>
+              </ul>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-delay="950">
+              <h5 class="font-semibold text-gray-700 mb-2">Marketing & Communications:</h5>
+              <ul class="text-gray-600 space-y-1 ml-4">
+                <li data-aos="fade-right" data-aos-delay="1000">• Managed the school's social media accounts</li>
+                <li data-aos="fade-right" data-aos-delay="1050">• Designed promotional posters and wrote newsletters</li>
+                <li data-aos="fade-right" data-aos-delay="1100">• Acted as the primary point of contact for external communications</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lemonade LXP -->
+        <div class="mb-4" data-aos="slide-up" data-aos-delay="1150">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+            <h3 class="text-xl font-semibold text-gray-800" data-aos="fade-right" data-aos-delay="1200">Lemonade LXP — Tech Support Volunteer</h3>
+            <span class="text-sm text-gray-600 italic" data-aos="fade-left" data-aos-delay="1200">December 2023</span>
+          </div>
+          <ul class="text-gray-600 space-y-1 ml-4">
+            <li data-aos="fade-up" data-aos-delay="1250">• Repaired and reset 20 iMac computers for professional deployment</li>
+            <li data-aos="fade-up" data-aos-delay="1300">• Diagnosed and resolved software and hardware issues</li>
+            <li data-aos="fade-up" data-aos-delay="1350">• Worked independently while regularly reporting progress to supervisors</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="mb-12 bg-white rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="300">Education</h2>
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl font-semibold text-gray-800">High School Student</h3>
+          <span class="text-sm text-gray-600 italic">Expected Graduation: 2026</span>
+        </div>
+        <p class="text-gray-600 mt-2" data-aos="fade-up" data-aos-delay="500">Planning to pursue Computer Science at the university level.</p>
+      </section>
+
+      <!-- Certifications Section -->
+      <section class="mb-12 bg-white rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="400">Certifications</h2>
+        <div class="space-y-4">
+          <div 
+            class="p-4 border border-gray-200 rounded-lg hover:border-[#4A6389] hover:shadow-md transition-all duration-200 cursor-pointer"
+            @click="openCertificate('images/RCR.png', 'Standard First Aid & CPR/AED Level C')"
+            data-aos="zoom-in" 
+            data-aos-delay="500"
+          >
+            <h3 class="font-semibold text-gray-800 mb-1">Standard First Aid & CPR/AED Level C (CSA Z1210-17 – Intermediate)</h3>
+            <p class="text-sm text-gray-600">Issued May 2025 – Expires May 2028 (Menard Safety Courses / Canadian Red Cross)</p>
+            <span class="text-xs text-[#4A6389] mt-2 inline-block">Click to view certificate →</span>
+          </div>
+          
+          <div 
+            class="p-4 border border-gray-200 rounded-lg hover:border-[#4A6389] hover:shadow-md transition-all duration-200 cursor-pointer"
+            @click="openCertificate('images/SIMDUT.png', 'Norcat – WHMIS (SIMDUT)')"
+            data-aos="zoom-in" 
+            data-aos-delay="600"
+          >
+            <h3 class="font-semibold text-gray-800 mb-1">Norcat – WHMIS (SIMDUT)</h3>
+            <p class="text-sm text-gray-600">Valid until January 31, 2026</p>
+            <span class="text-xs text-[#4A6389] mt-2 inline-block">Click to view certificate →</span>
+          </div>
+          
+          <div 
+            class="p-4 border border-gray-200 rounded-lg hover:border-[#4A6389] hover:shadow-md transition-all duration-200 cursor-pointer"
+            @click="openCertificate('images/EICS.png', 'Norcat – Excellence in Customer Service')"
+            data-aos="zoom-in" 
+            data-aos-delay="700"
+          >
+            <h3 class="font-semibold text-gray-800 mb-1">Norcat – Excellence in Customer Service</h3>
+            <p class="text-sm text-gray-600">Valid until January 31, 2026</p>
+            <span class="text-xs text-[#4A6389] mt-2 inline-block">Click to view certificate →</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section with Interactive Dials -->
+      <section class="mb-12 bg-white rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="500">Skills</h2>
+        
+        <!-- Soft Skills -->
+        <div class="mb-8">
+          <h3 class="font-semibold text-gray-800 mb-6 text-lg" data-aos="fade-up" data-aos-delay="600">Soft Skills</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Problem Solving -->
+            <div class="skill-dial text-center" data-aos="flip-left" data-aos-delay="700">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#4A6389" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="0"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 0;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">100%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">Problem Solving</h4>
+              <p class="text-sm text-gray-600 mt-1">Critical Thinking</p>
+            </div>
+
+            <!-- Communication -->
+            <div class="skill-dial text-center" data-aos="flip-left" data-aos-delay="800">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#4A6389" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="0"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 0;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">100%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">Communication</h4>
+              <p class="text-sm text-gray-600 mt-1">Collaboration</p>
+            </div>
+
+            <!-- Organization -->
+            <div class="skill-dial text-center" data-aos="flip-left" data-aos-delay="900">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#4A6389" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="0"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 0;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">100%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">Organization</h4>
+              <p class="text-sm text-gray-600 mt-1">Flexibility</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-6 text-lg" data-aos="fade-up" data-aos-delay="1000">Technical Skills</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Web Development -->
+            <div class="skill-dial text-center" data-aos="flip-up" data-aos-delay="1100">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#10B981" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="0"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 0;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">100%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">Web Development</h4>
+              <p class="text-sm text-gray-600 mt-1">Full Stack</p>
+            </div>
+
+            <!-- Python -->
+            <div class="skill-dial text-center" data-aos="flip-up" data-aos-delay="1200">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#3B82F6" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="28"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 28;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">90%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">Python</h4>
+              <p class="text-sm text-gray-600 mt-1">Scripting</p>
+            </div>
+
+            <!-- PHP -->
+            <div class="skill-dial text-center" data-aos="flip-up" data-aos-delay="1300">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#8B5CF6" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="57"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 57;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">80%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">PHP</h4>
+              <p class="text-sm text-gray-600 mt-1">Backend</p>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-dial text-center" data-aos="flip-up" data-aos-delay="1400">
+              <div class="relative inline-block">
+                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                  <circle 
+                    cx="50" cy="50" r="45" 
+                    stroke="#F59E0B" 
+                    stroke-width="8" 
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="184"
+                    stroke-linecap="round"
+                    class="skill-circle"
+                    style="--target-offset: 95;"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-lg font-bold text-gray-800">65%</span>
+                </div>
+              </div>
+              <h4 class="mt-3 font-semibold text-gray-800">JavaScript</h4>
+              <p class="text-sm text-gray-600 mt-1">Frontend/Backend</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References Section -->
+      <section class="bg-white rounded-lg shadow-sm p-8" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 border-b-2 border-[#4A6389] pb-2" data-aos="fade-right" data-aos-delay="600">References</h2>
+        <p class="text-gray-600" data-aos="fade-up" data-aos-delay="700">Available upon request.</p>
+      </section>
+
+      <!-- Certificate Modal -->
+      <div 
+        x-show="showModal" 
+        x-transition.opacity 
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+        @click.self="showModal = false"
+      >
+        <div class="bg-white rounded-lg max-w-4xl max-h-full overflow-auto" data-aos="zoom-in" data-aos-duration="300">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-semibold text-gray-800" x-text="modalTitle"></h3>
+              <button 
+                @click="showModal = false"
+                class="text-gray-500 hover:text-gray-700 text-2xl"
+              >
+                ×
+              </button>
+            </div>
+            <img 
+              :src="modalImage" 
+              :alt="modalTitle"
+              class="w-full h-auto rounded-lg shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+        easing: 'ease-out-cubic'
+      });
+    </script>
   </body>
 </html>
